@@ -1,0 +1,44 @@
+{
+    "name": "atlas-auth/atlas-wordpress",
+    "description": "Log in with Atlas — a WordPress plugin for OIDC/OAuth single sign-on, built on the official Atlas PHP SDK.",
+    "type": "wordpress-plugin",
+    "keywords": ["atlas", "auth", "wordpress", "oidc", "oauth", "sso", "login"],
+    "license": "MIT",
+    "homepage": "https://atlasauth.net",
+    "require": {
+        "php": ">=8.1",
+        "ext-json": "*",
+        "atlas-auth/atlas-php": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5"
+    },
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../php",
+            "options": {
+                "symlink": false,
+                "versions": {
+                    "atlas-auth/atlas-php": "0.1.0"
+                }
+            }
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Atlas\\WordPress\\": "includes/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Atlas\\WordPress\\Tests\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "test": "phpunit"
+    }
+}
